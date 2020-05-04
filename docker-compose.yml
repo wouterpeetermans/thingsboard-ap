@@ -1,0 +1,17 @@
+version: '3.2'
+services:
+  tb:
+    image: thingsboard/tb-postgres:2.4.3
+    ports:
+      - "127.0.0.1:9090:9090"
+      - "1883:1883"
+      - "5683:5683"
+    volumes:
+      - type: bind
+        source: /home/wouter/thinsboard-server/tb-data 
+        target: /data
+      - type: bind
+        source: /home/wouter/thinsboard-server/tb-logs
+        target: /var/log/thingsboard
+    container_name: thinsboard-ap-container
+
